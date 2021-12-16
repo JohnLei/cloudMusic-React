@@ -11,7 +11,7 @@ import { DownOutlined } from "@ant-design/icons";
 
 import { clearLoginState } from "../../utils/secret-key";
 
-// import ThemeLogin from "@/components/theme-login";
+import ThemeLogin from "@/components/theme-login";
 import { changeIsVisible } from "@/components/theme-login/store";
 
 import './style.less'
@@ -96,7 +96,7 @@ const HYAppHeader = memo(() => {
               >
                 <a href="https://juejin.cn/frontend"
                 className="ant-dropdown-link"
-                onClick={ (e) => e.preventDefault }
+                onClick={ (e) => e.preventDefault() }
                 >
                   { isLogin ? showProfileContent() : "登录" } <DownOutlined/>
                 </a>
@@ -104,6 +104,8 @@ const HYAppHeader = memo(() => {
             </Dropdown>
           </div>
       </div>
+      <div className="divider"></div>
+      <ThemeLogin />
     </div>
   )
 })
