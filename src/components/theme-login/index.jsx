@@ -38,7 +38,19 @@ const ThemeLogin = () => {
       setLoinState('default')
     }, 100)
   }
-
+  // 拖拽
+  const onStart = (event, uiData) => {
+    console.log('拖拽', uiData);
+    const { cilentWidth, cilentHeight } = window?.document?.documentElement
+    const targetRect = draggleRef?.current.getBoundingClientRect()
+    console.log(targetRect);
+    setBounds({
+      left: -targetRect?.left + uiData?.x,
+      right: cilentWidth - (targetRect?.right - uiData?.x),
+      top: -targetRect?.top + uiData?.y,
+      bottom: cilentHeight - (targetRect?.bottom - uiData?.y)
+    })
+  }
 
   return (
     <div>
@@ -68,6 +80,15 @@ const ThemeLogin = () => {
         }
         visible={ isVisible }
         onCancel={ handleCancel }
+        modalRender={(modal) => (
+          <Draggable
+            disabled={ disabled }
+            bounds={ bounds }
+            onStart={ (event, uiData) => onStart(event, uiData) }
+          >
+            <div ref={ draggleRef }>{ modal }</div>
+          </Draggable>
+        )}
       >
 
       </Modal>
