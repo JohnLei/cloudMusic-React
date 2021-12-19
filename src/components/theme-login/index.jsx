@@ -6,6 +6,7 @@ import { changeIsVisible } from "./store";
 import { PhoneOutlined } from "@ant-design/icons";
 import LoginIcon from "@/components/theme-controls-icon/login/index";
 // import ThemeLoginForm from "../theme-login-form";
+import './style.less'
 
 // 登录页面(模态框)
 
@@ -71,8 +72,8 @@ const ThemeLogin = memo(() => {
     <div className="bnPvpd">
       <div className="onXNIO">
         <div className="login-content">
-          <div className="login-gb">
-            <Button 
+          <div className="login-bg" />
+          <Button 
               type="ghost"
               onClick={ () => handleLogin('register') }
               shape="round"
@@ -89,7 +90,6 @@ const ThemeLogin = memo(() => {
             >
               手机号登录
             </Button>
-          </div>
         </div>
       </div>
       {/* 登录方式 */}
@@ -123,7 +123,7 @@ const ThemeLogin = memo(() => {
   const phoneLogin = (loginState) => {
     return (
       <div>
-        
+
       </div>
     )
   }
