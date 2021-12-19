@@ -64,7 +64,9 @@ const HYAppHeader = memo(() => {
       ''
     )
   }
-  const showProfileContent = () => {}
+  const showProfileContent = () => {
+    return <img src={ profile.avatarUrl } alt="" className="profile-img" />
+  }
   return (
     <div className="Wimnt">
       <div className="content wrap-v1">
