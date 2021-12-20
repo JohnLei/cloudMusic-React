@@ -5,7 +5,7 @@ import Draggable from "react-draggable";
 import { changeIsVisible } from "./store";
 import { PhoneOutlined } from "@ant-design/icons";
 import LoginIcon from "@/components/theme-controls-icon/login/index";
-// import ThemeLoginForm from "../theme-login-form";
+import ThemeLoginForm from "../theme-login-form";
 import './style.less'
 
 // 登录页面(模态框)
@@ -122,8 +122,8 @@ const ThemeLogin = memo(() => {
   // phoneLogin(手机号登录)
   const phoneLogin = (loginState) => {
     return (
-      <div>
-
+      <div className="cEZkLs">
+        <ThemeLoginForm loginState={ loginState }/>
       </div>
     )
   }
