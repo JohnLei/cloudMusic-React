@@ -13,6 +13,14 @@ function reducer(state = defaultState, action) {
       return state.set("isLogin", action.isLogin)
     case actionTypes.CHANGE_PROFILE_INFO:
       return state.set('profile', action.profile)
+      case actionTypes.CHANGE_PROFILE_TOKEN:
+        return state.set("token", action.token);
+      case actionTypes.CHANGE_PROFILE_COOKIE:
+        return state.set("cookie", action.cookie);
+      case actionTypes.CHANGE_USER_DETAIL_INFO:
+        return state.set("userDetails", action.uid);
+      case actionTypes.CHANGE_USER_PLAY_RECORD:
+        return state.set("playRecord", action.uid);
     default:
      return state
   }

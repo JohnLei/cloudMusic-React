@@ -36,10 +36,22 @@ export const changeUserLoginCookie = (cookie) => ({
   cookie
 })
 
+// 获取用户详情信息(uid)
+export const changeUserDetailInfo = (uid) => ({
+  type: actionTypes.CHANGE_USER_DETAIL_INFO,
+  uid
+})
+
+// 获取用户播放记录(uid)
+export const changeUserPlayRecord = (uid) => ({
+  type: actionTypes.CHANGE_USER_PLAY_RECORD,
+  uid,
+})
+
 // 获取登录信息
 export const getLoginProfileInfo = (username, password, tip) => {
   return (dispatch) => {
-    gotoPhoneLogin(username, undefined, md5).then(res => {
+    gotoPhoneLogin(username, undefined, md5(password)).then(res => {
       if (res.code !== 200) {
         message.error('账号或密码错误')
       } else {

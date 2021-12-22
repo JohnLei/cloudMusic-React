@@ -36,17 +36,49 @@ const ThemeLoginForm = (props) => {
   // redux=hook
   const dispatch = useDispatch()
   // 表单handle
-  const onFinish = ({ username, password }) => {}
+  const onFinish = ({ username, password }) => {
+    dispatch(getLoginProfileInfo(username, password, true))
+  }
   const onFinishFailed = (errorInfo) => {
     console.log('Failed', errorInfo);
   }
 
   // 注册
-  const onRegisterFinish = (value) => {}
+  const onRegisterFinish = (value) => {
+    console.log(value);
+    const { phone, password, code, nickname } = value
+    sendRegister(phone, password, code, nickname).then(res => {
+      console.log(res);
+      if (res.code === 200) {
+        message.success('注册成功')
+      } else {
+        message.warn(res.message);
+      }
+    })
+  }
   const onRegisterFinishFailed = () => {}
 
-  // handle function
-  const handleSendCode = () => {}
+  // handle function 发送验证码
+  const handleSendCode = () => {
+    if (!isSendSatte) {
+      let i = 0
+      const timer = setInterval(() => {
+        i++
+        setSecond(second - i)
+        if (i > 60) {
+          clearInterval(timer)
+          setIsSendSatte(false)
+          setSecond(60)
+        }
+      }, 1000)
+      !isSendSatte &&
+      sendRegisterCode(phone).then(res => {
+        if (res.code === 200) message.success('发送成功')
+        else message.error('发送失败, 请60秒后发送验证码')
+      })
+    }
+    setIsSendSatte(true)
+  }
 
   return (
     <>
