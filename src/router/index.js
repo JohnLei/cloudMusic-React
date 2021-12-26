@@ -3,7 +3,7 @@ import { Redirect } from "react-router";
 
 import HYDiscover from '@/pages/discover'
 
-// import HYRecommend from '@/pages/discover/c-pages/recommend'
+import HYRecommend from '@/pages/discover/c-pages/recommend'
 
 const routes = [
   {
@@ -19,6 +19,11 @@ const routes = [
         path: '/discover',
         exact: true,
         render: () => <Redirect to="/discover/recommend" />
+      },
+      {
+        path: "/discover/recommend",
+        exact: true,
+        component: HYRecommend
       }
     ]
   }
