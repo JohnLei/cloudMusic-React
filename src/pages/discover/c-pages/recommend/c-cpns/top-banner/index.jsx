@@ -2,6 +2,7 @@ import React, { memo, useEffect, useRef, useCallback, useState } from "react";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { getTopBannerAction } from '../../store/actionCreators'
 import { Carousel } from "antd";
+import './style.less'
 
 const HYTopBanner = memo(() => {
   // state
@@ -25,9 +26,10 @@ const HYTopBanner = memo(() => {
       setCurrentIndex(to);
     }, 0)
   }
+  const bgImage = topBanners[currentIndex] && topBanners[currentIndex].imageUrl + '?imageView&blur=40x20'
 
   return (
-    <div>
+    <div style={{background: `url(${bgImage}) center center/6000px`}}>
       <div className="banner wrap-v2 wrap-back">
         <div className="hyvzuY">
         <Carousel
@@ -46,6 +48,18 @@ const HYTopBanner = memo(() => {
             })
           }
         </Carousel>
+        </div>
+        <a href="https://music.163.com/#/download" className="a-link" target="_blank" rel="noopener noreferrer"> </a>
+        {/* 左右按钮 */}
+        <div className="xPkRF">
+          <button
+            className="btn left"
+            onClick={(e) => bannerRef.current.prev()}
+          ></button>
+          <button
+            className="btn right"
+            onClick={(e) => bannerRef.current.next()}
+          ></button>
         </div>
       </div>
     </div>
