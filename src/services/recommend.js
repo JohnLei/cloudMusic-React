@@ -6,3 +6,12 @@ export function getTopBanners() {
     url: "/banner",
   });
 }
+// 获取热门推荐标题栏
+export function getHotRecommends(limit) {
+  return request({
+    url: "/personalized",
+    params: {
+      limit,
+    },
+  });
+}

@@ -21,11 +21,11 @@ const HYTopBanner = memo(() => {
   // 轮播图ref
   const bannerRef = useRef()
   // 轮播图背景
-  const bannerChange = (from, to) => {
+  const bannerChange = useCallback((from, to) => {
     setTimeout(() => {
       setCurrentIndex(to);
     }, 0)
-  }
+  }, [])
   const bgImage = topBanners[currentIndex] && topBanners[currentIndex].imageUrl + '?imageView&blur=40x20'
 
   return (
