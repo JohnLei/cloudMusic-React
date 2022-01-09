@@ -2,6 +2,7 @@ import React, { memo } from "react";
 
 import HYTopBanner from './c-cpns/top-banner';
 import HYHotRecommend from "./c-cpns/hot-recommend";
+import HYUserLogin from "./c-cpns/user-login";
 import './style.less'
 
 const HYRecommend = memo(() => {
@@ -12,7 +13,9 @@ const HYRecommend = memo(() => {
         <div className="iASsSh-left">
           <HYHotRecommend/>
         </div>
-        <div className="ikvbQx-right"></div>
+        <div className="ikvbQx-right">
+          <HYUserLogin/>
+        </div>
       </div>
     </div>
   )

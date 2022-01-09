@@ -50,6 +50,7 @@ const HYTopBanner = memo(() => {
         </Carousel>
         </div>
         <a href="https://music.163.com/#/download" className="a-link" target="_blank" rel="noopener noreferrer"> </a>
+        <p className="link-p">PC 安卓 iPhone WP iPad Mac 六大客户端</p>
         {/* 左右按钮 */}
         <div className="xPkRF">
           <button
