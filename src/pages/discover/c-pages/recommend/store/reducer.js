@@ -3,7 +3,16 @@ import { Map } from "immutable";
 import * as actionTypes from "./constants";
 
 const defaultState = Map({
-  topBanners: []
+  topBanners: [],
+  hotRecommends: [],
+  newAlbums: [],
+  settleSinger: [],
+  hotAnchors: [],
+  upRanking: {},
+  newRanking: {},
+  originRanking: {},
+  personList: [],
+  dayRecommend: [],
 })
 
 function reducer(state = defaultState, action) {
